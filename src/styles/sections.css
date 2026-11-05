@@ -1,0 +1,926 @@
+/*
+  Estilos por seção. Breakpoints usados (iguais ao site original):
+    laptop  ≤ 1366px   ·   tablet ≤ 1024px   ·   mobile ≤ 767px
+*/
+
+/* ═════════════ 1. HERO ═════════════ */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 900px;
+  padding: 90px 20px;
+  background-color: var(--navy-deep);
+  background-image: var(--hero-bg-desktop, radial-gradient(ellipse at 75% 40%, #12214d 0%, var(--navy-deep) 70%));
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__bg-tag {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 4px 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100%, 1280px);
+}
+
+.hero__logo {
+  width: 15em;
+  max-width: 100%;
+}
+
+.hero__logo img,
+.hero__logo .img-placeholder {
+  width: 100%;
+  height: auto;
+}
+
+.hero__title,
+.hero__subtitle,
+.hero__hint {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.hero__title {
+  width: 48rem;
+  font-size: 3.4em;
+  line-height: 1.15em;
+}
+
+.hero__subtitle {
+  width: 43rem;
+  font-size: 1.5em;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+
+.hero__hint {
+  padding: 1rem 0 0 2.35rem;
+  font-size: 1.1em;
+  font-weight: 200;
+  color: #ffffffbf;
+}
+
+.hero__cta {
+  align-self: flex-start;
+  width: 87%;
+}
+
+/* ═════════════ 2. PARA QUEM É ═════════════ */
+.audience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 6em 0;
+}
+
+.audience__scroll {
+  text-align: center;
+  animation: moverBaixo 1.5s infinite;
+}
+
+.audience__scroll-icon {
+  display: inline-block;
+  font-size: 2em;
+  line-height: 1;
+}
+
+.audience__scroll-icon svg {
+  display: block;
+  width: auto;
+  height: 2em;
+}
+
+@keyframes moverBaixo {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.audience__title {
+  width: 100%;
+  padding: 0 0 2rem;
+  font-size: 3.5em;
+  line-height: 57px;
+  letter-spacing: -0.8px;
+  text-align: center;
+}
+
+.audience__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: min(100%, 1280px);
+}
+
+.audience__card {
+  align-self: stretch;
+  width: 32%;
+  padding: 3em 3em 4em;
+  border: 1px solid #ffffff2b;
+  border-radius: 8px;
+  background-image: linear-gradient(141deg, #1e3b7340 0%, #1e3b731a 100%);
+}
+
+.audience__card-icon {
+  font-size: 4em;
+  line-height: 1;
+}
+
+.audience__card-icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+.audience__card-title {
+  margin: calc(15px + 8px) 0 0;
+  letter-spacing: -0.012em;
+  font-family: var(--font-display);
+  font-size: 1.4em;
+  font-weight: 200;
+  line-height: 1.35em;
+  color: var(--white);
+}
+
+.audience__cta {
+  width: 87%;
+  margin-top: 2em;
+  text-align: center;
+}
+
+/* ═════════════ 3. PILARES ═════════════ */
+.pillars {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 8em 0 6em;
+  border-radius: 18px;
+  background-image: radial-gradient(at top center, #282b75 0%, #090f37 75%);
+}
+
+.pillars__title {
+  width: 45rem;
+  max-width: 100%;
+  padding: 0 0 1rem;
+  font-size: 3.5em;
+  line-height: 57px;
+  letter-spacing: -0.8px;
+  text-align: center;
+}
+
+.pillars__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  gap: 15px;
+  width: min(100%, 1280px);
+  margin-top: 30px;
+}
+
+.pillars__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 32%;
+  padding: 3em 2em;
+  border: 1px solid #ffffff2e;
+  border-radius: 8px;
+  background-color: #1e3b7326;
+}
+
+/* Etiqueta "PILAR n" sobre o card */
+.pillars__card::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -10px;
+  left: 43%;
+  z-index: 10;
+  width: 90px;
+  height: 26px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  font-size: 0.85em;
+  font-weight: bold;
+  text-align: center;
+  transform: translateX(-165%);
+}
+
+.pillars__icon {
+  width: 79px;
+  height: auto;
+}
+
+.pillars__card-title {
+  align-self: flex-start;
+  font-size: 1.5em;
+  line-height: 1.35em;
+}
+
+.pillars__card-text {
+  align-self: flex-start;
+  font-size: 1.1em;
+  font-weight: 200;
+  line-height: 1.5em;
+  color: #ffffffe6;
+}
+
+.pillars__cta {
+  margin-top: 2em;
+  text-align: center;
+}
+
+/* ═════════════ 4. O QUE VOCÊ RECEBE ═════════════ */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 4em 0 6em;
+  background-color: var(--white);
+}
+
+.benefits__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: min(100%, 1280px);
+}
+
+.benefits__title {
+  width: 44rem;
+  max-width: 100%;
+  padding: 0 0 1rem;
+  font-size: 3.5em;
+  line-height: 1em;
+  text-align: center;
+  color: var(--ink);
+}
+
+.benefits__title-accent {
+  color: var(--blue);
+}
+
+.benefits__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.benefits__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 32%;
+  padding: 2em;
+  border-radius: 8px;
+  background-color: var(--navy);
+}
+
+.benefits__check {
+  margin-top: 1rem;
+}
+
+.benefits__check span {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.benefits__check svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.benefits__item-text {
+  align-self: flex-start;
+  font-size: 1.1em;
+  font-weight: 200;
+  line-height: 1.35em;
+  color: #ffffffe6;
+}
+
+.benefits__footnote {
+  font-size: 1.25em;
+  font-weight: 200;
+  line-height: 1.35em;
+  text-align: center;
+  color: var(--ink);
+}
+
+/* ═════════════ 5. MENTOR ═════════════ */
+.mentor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8em 0;
+}
+
+.mentor__card {
+  display: flex;
+  gap: 20px;
+  width: min(100%, 1280px);
+  padding: 5em;
+  border: 1px solid #ffffff2e;
+  border-radius: 8px;
+  background-color: #1e3b7326;
+}
+
+.mentor__info,
+.mentor__media {
+  flex: 0 1 100%;
+  min-width: 0;
+}
+
+.mentor__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.mentor__eyebrow {
+  font-size: 1.35em;
+}
+
+.mentor__name {
+  margin-top: -1rem;
+  font-size: 3.5em;
+  line-height: 1.35em;
+  color: var(--gold);
+}
+
+.mentor__bio {
+  padding-right: 2rem;
+  font-size: 1.15em;
+  font-weight: 200;
+  line-height: 1.35em;
+  color: #ffffffe6;
+}
+
+.mentor__bio p + p {
+  margin-top: 1.35em;
+}
+
+.mentor__cta {
+  align-self: flex-start;
+  width: 87%;
+}
+
+.mentor__cta .btn {
+  font-size: 0.8rem;
+}
+
+.mentor__media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img.mentor__photo {
+  display: block;
+}
+
+.mentor__photo {
+  flex: none;
+  width: 30rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ═════════════ 6. DEPOIMENTOS ═════════════ */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 4em;
+}
+
+.testimonials__row {
+  display: flex;
+  gap: 20px;
+  width: min(100%, 1280px);
+  padding: 10px;
+}
+
+.testimonials__card {
+  display: flex;
+  flex: 0 1 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 2.5em;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.testimonials__card:first-child {
+  justify-content: flex-start;
+}
+
+.testimonials__quote span {
+  display: inline-block;
+  color: var(--navy);
+  font-size: 50px;
+  line-height: 1;
+}
+
+.testimonials__quote svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.testimonials__text {
+  align-self: flex-start;
+  font-size: 1.15em;
+  font-weight: 300;
+  line-height: 1.35em;
+  color: #090f37cf;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  text-align: left;
+}
+
+.testimonials__avatar {
+  width: 6rem;
+  height: auto;
+}
+
+.testimonials__author-info {
+  width: 100%;
+}
+
+.testimonials__name {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.testimonials__role {
+  font-family: var(--font-display);
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #090f37b5;
+}
+
+/* ═════════════ 7. RODAPÉ ═════════════ */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6em 0;
+  background-image: radial-gradient(at top center, #1e3b7333 0%, #00133133 75%);
+}
+
+.footer__row {
+  display: flex;
+  gap: 20px;
+  width: min(100%, 1280px);
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer__col--spacer,
+.footer__col--credit {
+  width: 25%;
+}
+
+.footer__col--copy {
+  align-items: center;
+  width: 50%;
+}
+
+.footer__text {
+  width: 35rem;
+  max-width: 100%;
+  padding: 0.5rem 0 0;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.25em;
+  color: #fafafa;
+}
+
+.footer__text--figtree {
+  font-family: 'Figtree', sans-serif;
+}
+
+.footer__text--inter {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.footer__text--end {
+  text-align: end;
+}
+
+.footer__link {
+  align-self: flex-end;
+  font-family: 'Figtree', sans-serif;
+  font-size: 1em;
+  line-height: 1.25em;
+  color: #fafafa;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  opacity: 0.75;
+}
+
+/* ═════════════ RESPONSIVO ═════════════ */
+
+/* Laptop (768–1366) */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .hero__inner {
+    width: min(100%, 90%);
+  }
+
+  .audience__grid,
+  .pillars__grid,
+  .benefits__inner,
+  .testimonials__row {
+    width: 95%;
+  }
+
+  .benefits__grid {
+    width: 100%;
+  }
+
+  .mentor__card {
+    width: 95%;
+    padding: 4em;
+  }
+
+  .footer__row {
+    width: 90%;
+  }
+}
+
+/* Tablet (e abaixo) */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 0;
+    padding: 55% 0 10%;
+    background-image: var(--hero-bg-mobile, radial-gradient(ellipse at 70% 30%, #12214d 0%, var(--navy-deep) 75%));
+  }
+
+  .audience__grid {
+    gap: 18px;
+  }
+
+  .audience__card {
+    width: 40%;
+  }
+
+  .mentor__card {
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 6em 4em 4em;
+  }
+
+  .mentor__info {
+    padding-top: 1em;
+  }
+
+  .mentor__media {
+    order: -1;
+  }
+
+  .testimonials__row {
+    flex-wrap: wrap;
+  }
+
+  .testimonials__card {
+    padding: 3.5em;
+  }
+
+  .footer__row {
+    gap: 0;
+  }
+
+  .footer__col--spacer,
+  .footer__col--credit {
+    width: 27%;
+  }
+
+  .footer__col--copy {
+    width: 46%;
+  }
+
+  .footer__text {
+    padding: 0;
+    font-size: 0.8em;
+  }
+
+  .footer__link {
+    font-size: 0.8em;
+  }
+
+}
+
+/* Somente tablet: 768–1024 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pillars__card {
+    width: 48%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero {
+    padding: 60% 0 10%;
+  }
+
+  .hero__inner {
+    width: 100%;
+  }
+
+  .hero__logo {
+    width: 10em;
+    align-self: center;
+  }
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__hint {
+    align-self: center;
+    text-align: center;
+  }
+
+  .hero__title {
+    width: 20rem;
+    font-size: 1.25em;
+    line-height: 1.2em;
+  }
+
+  .hero__subtitle {
+    width: 18rem;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+
+  .hero__hint {
+    padding: 0.5rem 0 0;
+    font-size: 0.8em;
+    line-height: 1.2em;
+  }
+
+  .hero__cta {
+    align-self: center;
+    width: 20em;
+    max-width: 100%;
+  }
+
+  .hero__cta .btn,
+  .audience__cta .btn,
+  .mentor__cta .btn {
+    display: block;
+  }
+
+  .audience {
+    z-index: 8;
+    padding: 40px 10px 70px;
+  }
+
+  .audience__scroll {
+    margin-top: 10px;
+  }
+
+  .audience__title,
+  .pillars__title,
+  .benefits__title {
+    font-size: 1.4em;
+    line-height: 1.2em;
+  }
+
+  .audience__card {
+    width: 100%;
+    padding: 40px 50px;
+  }
+
+  .audience__card-title {
+    font-size: 1em;
+  }
+
+  .audience__cta {
+    width: 20em;
+    max-width: 100%;
+    padding-top: 1em;
+  }
+
+  .pillars {
+    z-index: 8;
+    padding: 4em 0;
+    border-radius: 0;
+  }
+
+  .pillars__grid {
+    gap: 30px;
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  .pillars__card {
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .pillars__card::before {
+    left: 53%;
+  }
+
+  .pillars__icon {
+    width: 4em;
+    align-self: center;
+  }
+
+  .pillars__card-title {
+    font-size: 1.15em;
+    line-height: 1.2em;
+  }
+
+  .pillars__card-text {
+    align-self: center;
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+
+  .pillars__cta {
+    width: 20em;
+    max-width: 100%;
+    padding-top: 1em;
+  }
+
+  .benefits__grid {
+    width: 90%;
+  }
+
+  .benefits__item {
+    width: 100%;
+  }
+
+  .benefits__item-text {
+    align-self: center;
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+
+  .benefits__footnote {
+    width: 20rem;
+    max-width: 100%;
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+
+  .mentor {
+    padding: 1.5em 0 4em;
+  }
+
+  .mentor__card {
+    width: 90%;
+    padding: 1.5em;
+  }
+
+  .mentor__eyebrow,
+  .mentor__name {
+    align-self: center;
+    text-align: center;
+    line-height: 1.2em;
+  }
+
+  .mentor__eyebrow {
+    font-size: 0.9em;
+  }
+
+  .mentor__name {
+    font-size: 1.5em;
+  }
+
+  .mentor__bio {
+    align-self: center;
+    padding: 0;
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+
+  .mentor__cta {
+    align-self: center;
+    width: 20em;
+    max-width: 100%;
+    padding-top: 1em;
+  }
+
+  .testimonials__card {
+    padding: 2.25em;
+  }
+
+  .testimonials__text {
+    align-self: center;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+
+  .testimonials__avatar {
+    width: 5.5rem;
+  }
+
+  .testimonials__name {
+    font-size: 1.15em;
+  }
+
+  .testimonials__role {
+    font-size: 1em;
+  }
+
+  .footer__row {
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 90%;
+  }
+
+  .footer__col {
+    width: 100%;
+    align-items: center;
+  }
+
+  .footer__col--copy {
+    order: -1;
+    width: 100%;
+  }
+
+  .footer__text,
+  .footer__text--end {
+    text-align: center;
+  }
+
+  .footer__col--spacer {
+    display: none;
+  }
+
+  .footer__link {
+    align-self: center;
+  }
+}

@@ -1,0 +1,646 @@
+/*
+  Página 1 — /black-friday (captação de leads)
+  Estrutura da página de referência, com o visual da home (navy + dourado, Futura/Jost).
+*/
+
+.bf {
+  overflow-x: clip;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.bf-wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ───────── Barra superior com contagem ───────── */
+.bf-bar {
+  position: relative;
+  z-index: 3;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  color: #0a0a14;
+  font-family: var(--font-button);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.bf-bar__cd {
+  display: inline-flex;
+  gap: 6px;
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+.bf-bar__cd > span {
+  display: inline-block;
+  min-width: 36px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--navy);
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.bf-bar small {
+  margin-left: 1px;
+  font-size: 9px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* ───────── Hero ───────── */
+.bf-hero {
+  background: radial-gradient(ellipse at 80% 30%, #16275a 0%, var(--navy-deep) 70%);
+}
+
+.bf-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 26px;
+}
+
+.bf-col {
+  max-width: 540px;
+}
+
+.bf-logo {
+  width: 130px;
+  margin-bottom: 14px;
+}
+
+.bf-logo img,
+.bf-logo .img-placeholder {
+  width: 100%;
+  height: auto;
+}
+
+.bf-date {
+  display: inline-flex;
+  align-items: stretch;
+  margin: 2px 0 16px 4px;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  transform: skewX(-8deg);
+}
+
+.bf-date > span {
+  display: flex;
+  align-items: center;
+  transform: skewX(8deg);
+}
+
+.bf-date__day {
+  gap: 3px;
+  padding: 6px 12px 6px 10px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  color: #0a0a14;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.bf-date__day small {
+  align-self: flex-end;
+  margin-bottom: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.bf-date__info {
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: center;
+  padding: 6px 14px 6px 12px;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+.bf-date__info b {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.bf-title {
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--white);
+}
+
+.bf-title em {
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bf-sub {
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.45;
+  color: #ffffffe6;
+}
+
+.bf-sub strong {
+  font-weight: 400;
+  color: var(--white);
+}
+
+.bf-sub b {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* Formulário */
+.bf-form {
+  display: grid;
+  gap: 10px;
+}
+
+.bf-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 18px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  background: var(--white);
+  color: #111;
+  font: 500 16px var(--font-button);
+}
+
+.bf-input::placeholder {
+  color: #7a7d8c;
+  font-weight: 400;
+}
+
+.bf-input:focus {
+  border-color: var(--gold);
+}
+
+.bf-input.is-error {
+  border-color: #e5484d;
+}
+
+.bf-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.bf-submit,
+.bf-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+  min-height: 56px;
+  padding: 1em 1.4em;
+  border: 0;
+  border-bottom: 3px solid #f4f7d8;
+  border-radius: 62px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  color: #0a0a14;
+  font-family: var(--font-button);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+.bf-submit:hover,
+.bf-cta:hover {
+  filter: brightness(1.15);
+}
+
+.bf-submit[disabled] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.bf-submit svg {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.bf-error {
+  color: #ff8a8e;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.bf-success {
+  padding: 18px 20px;
+  border: 1px solid #ffffff2e;
+  border-radius: 12px;
+  background: #1e3b7340;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Foto */
+.bf-photo {
+  margin-top: 22px;
+}
+
+.bf-photo > * {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.bf-photo img {
+  display: block;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+/* ───────── Fitas "BLACK FRIDAY" ───────── */
+.bf-tapes {
+  position: relative;
+  height: 92px;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+.bf-tape {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  padding: 6px 0;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bf-tape.t1 {
+  top: 14px;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  background: var(--navy);
+  color: var(--white);
+  transform: rotate(-2.2deg);
+}
+
+.bf-tape.t2 {
+  top: 46px;
+  background: #f2f2f2;
+  color: var(--navy);
+  transform: rotate(1.6deg);
+}
+
+.bf-tape b {
+  margin-right: 26px;
+}
+
+.bf-tape i {
+  margin-right: 4px;
+  color: transparent;
+  -webkit-text-stroke: 1.2px #fff;
+}
+
+.bf-tape.t2 i {
+  -webkit-text-stroke-color: var(--navy);
+}
+
+/* ───────── Seções ───────── */
+.bf-sec {
+  padding: 56px 0;
+}
+
+.bf-sec--dark {
+  background-color: var(--navy);
+  background-image: radial-gradient(at top center, #1e3b7333 0%, #00133133 75%);
+}
+
+.bf-sec--light {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.bf-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.bf-h2 {
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+}
+
+.bf-h2 span {
+  color: var(--gold);
+}
+
+.bf-sec--light .bf-h2 {
+  color: var(--ink);
+}
+
+.bf-sec--light .bf-h2 span {
+  color: var(--blue);
+}
+
+.bf-h2--center {
+  text-align: center;
+}
+
+.bf-text {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #ffffffe6;
+}
+
+.bf-text strong {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.bf-list {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.bf-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid #ffffff2b;
+  border-radius: 8px;
+  background-image: linear-gradient(141deg, #1e3b7340 0%, #1e3b731a 100%);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 200;
+  line-height: 1.45;
+  color: #ffffffe6;
+}
+
+.bf-list li svg {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+
+.bf-list li strong {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.bf-list li.is-new {
+  border-color: var(--gold);
+  background: rgba(234, 183, 110, 0.12);
+}
+
+.bf-list li.is-new strong {
+  color: var(--gold);
+}
+
+.bf-narrow .bf-cta,
+.bf-final .bf-cta {
+  margin-inline: auto;
+}
+
+/* Aprovados */
+.bf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.bf-ap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.bf-ap__avatar {
+  flex: 0 0 72px;
+  width: 72px;
+}
+
+.bf-ap strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+.bf-ap span {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.35;
+  color: #090f37b5;
+}
+
+/* Quem sou eu */
+.bf-bio {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.bf-bio__photo {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* CTA final */
+.bf-final {
+  padding: 60px 0 68px;
+  text-align: center;
+  background: var(--navy-deep);
+}
+
+.bf-final .bf-h2 {
+  margin-bottom: 8px;
+}
+
+.bf-when {
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 200;
+  color: #ffffffe6;
+}
+
+/* ───────── Desktop ───────── */
+@media (min-width: 900px) {
+  .bf-bar {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .bf-hero__grid {
+    grid-template-columns: 540px 1fr;
+    gap: 40px;
+    min-height: 560px;
+    padding-top: 40px;
+    padding-bottom: 44px;
+  }
+
+  .bf-logo {
+    width: 190px;
+    margin-bottom: 22px;
+  }
+
+  .bf-date {
+    margin-bottom: 22px;
+  }
+
+  .bf-date__day {
+    padding: 8px 14px 8px 12px;
+    font-size: 2rem;
+  }
+
+  .bf-date__day small {
+    font-size: 0.9rem;
+  }
+
+  .bf-date__info {
+    padding: 8px 18px 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .bf-date__info b {
+    font-size: 0.95rem;
+  }
+
+  .bf-title {
+    font-size: 3rem;
+  }
+
+  .bf-sub {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+
+  .bf-submit,
+  .bf-cta {
+    font-size: 0.95rem;
+  }
+
+  .bf-photo {
+    margin-top: 0;
+  }
+
+  .bf-photo > * {
+    max-width: 440px;
+    margin-left: auto;
+  }
+
+  .bf-tapes {
+    height: 110px;
+  }
+
+  .bf-tape {
+    font-size: 1.65rem;
+  }
+
+  .bf-sec {
+    padding: 80px 0;
+  }
+
+  .bf-h2 {
+    font-size: 2.25rem;
+  }
+
+  .bf-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bf-ap {
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .bf-bio {
+    grid-template-columns: 380px 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .bf-title {
+    font-size: 1.6rem;
+  }
+
+  .bf-bar {
+    font-size: 0.7rem;
+  }
+
+  .bf-bar__cd > span {
+    min-width: 32px;
+    padding: 2px 5px;
+  }
+}
