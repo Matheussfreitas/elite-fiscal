@@ -10,14 +10,14 @@
  */
 export const images = {
   // Logo branca no topo da página
-  logo: { src: null, alt: 'Elite Fiscal', width: 1100, height: 470, label: 'LOGO' },
+  logo: { src: '/images/logo.png', alt: 'Elite Fiscal', width: 263, height: 127, label: 'LOGO' },
 
   // Fundo do primeiro bloco (desktop e mobile/tablet)
-  heroBgDesktop: { src: null, width: 1920, height: 1080, label: 'FUNDO HERO (DESKTOP)' },
-  heroBgMobile: { src: null, width: 800, height: 1400, label: 'FUNDO HERO (MOBILE)' },
+  heroBgDesktop: { src: '/images/hero-bg.webp', width: 1536, height: 2688, label: 'FUNDO HERO (DESKTOP)' },
+  heroBgMobile: { src: '/images/hero-bg.webp', width: 1536, height: 2688, label: 'FUNDO HERO (MOBILE)' },
 
   // Foto do mentor
-  mentor: { src: null, alt: 'Wyllo Marques', width: 800, height: 1080, label: 'FOTO DO MENTOR' },
+  mentor: { src: '/images/hero-bg.webp', alt: 'Wyllo Marques', width: 800, height: 1000, label: 'FOTO DO MENTOR' },
 
   // Fotos dos depoimentos (quadradas, exibidas em círculo)
   testimonial1: { src: null, alt: 'Camilla Pascally', width: 190, height: 190, label: 'FOTO' },
