@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, type ChangeEvent, type FormEvent, type Ref } from 'react'
 import { EVENT, bf } from '../../data/blackFriday'
 
 const t = bf.hero.form
 
 /** Máscara (DD) 99999-9999 */
-function maskPhone(value) {
+function maskPhone(value: string) {
   const d = value.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '').slice(0, 11)
   if (d.length > 7) return `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`
   if (d.length > 2) return `(${d.slice(0, 2)}) ${d.slice(2)}`
@@ -23,14 +23,21 @@ function WhatsappIcon() {
 }
 
 /** Formulário de captação (e-mail + WhatsApp). Ligue o envio em `EVENT.leadEndpoint`. */
-export default function LeadForm({ emailRef }) {
+interface FieldError {
+  field: 'email' | 'whatsapp' | null
+  text: string
+}
+
+type Status = 'idle' | 'sending' | 'done'
+
+export default function LeadForm({ emailRef }: { emailRef?: Ref<HTMLInputElement> }) {
   const [email, setEmail] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [honeypot, setHoneypot] = useState('')
-  const [error, setError] = useState({ field: null, text: '' })
-  const [status, setStatus] = useState('idle') // idle | sending | done
+  const [error, setError] = useState<FieldError>({ field: null, text: '' })
+  const [status, setStatus] = useState<Status>('idle')
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (honeypot) return // bot
 
@@ -83,7 +90,7 @@ export default function LeadForm({ emailRef }) {
         autoComplete="email"
         inputMode="email"
         value={email}
-        onChange={(e) => {
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           setEmail(e.target.value)
           setError({ field: null, text: '' })
         }}
@@ -98,7 +105,7 @@ export default function LeadForm({ emailRef }) {
         inputMode="tel"
         maxLength={16}
         value={whatsapp}
-        onChange={(e) => {
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           setWhatsapp(maskPhone(e.target.value))
           setError({ field: null, text: '' })
         }}

@@ -78,7 +78,7 @@ function Plans() {
           </button>
         ))}
       </div>
-      <p className="pm-tabsub">{current.sub}</p>
+      <p className="pm-tabsub">{current?.sub}</p>
 
       <div className="pm-cards">
         {t.plans.items[tab].map((p) => (

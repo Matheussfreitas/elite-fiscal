@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 
 /** Retorna [ref, visible]: `visible` vira true quando o elemento entra na tela (uma única vez). */
-export function useReveal(threshold = 0.15) {
-  const ref = useRef(null)
+export function useReveal<T extends Element = HTMLElement>(threshold = 0.15): [RefObject<T | null>, boolean] {
+  const ref = useRef<T>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function useReveal(threshold = 0.15) {
     }
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setVisible(true)
           io.disconnect()
         }

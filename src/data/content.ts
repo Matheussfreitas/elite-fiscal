@@ -1,4 +1,5 @@
 /** Todos os textos e links do site ficam aqui. Edite sem mexer nos componentes. */
+import type { ImageKey } from './images'
 
 export const CTA_URL = 'https://typebot.co/qualificacaoelitefiscal'
 export const CTA_LABEL = 'QUERO DISPUTAR UMA VAGA'
@@ -72,7 +73,14 @@ export const mentor = {
   ],
 }
 
-export const testimonials = [
+export interface Testimonial {
+  text: string
+  name: string
+  role: string
+  image: ImageKey
+}
+
+export const testimonials: Testimonial[] = [
   {
     text: 'Não é sorte, é constância. A minha aprovação tem nome: Método Wyllo. Teve dias de cansaço, de dúvida e de vontade de desistir, mas o método me deu algo que eu nunca tinha conseguido antes: constância e direção. Eu não estudava mais no escuro, eu sabia exatamente o que fazer e como fazer. Cada etapa, cada orientação e cada ajuste fizeram diferença no meu processo. Aos poucos, fui ganhando confiança, evoluindo e acreditando que era possível, até que a aprovação chegou. Hoje falo com o coração, cheio de gratidão: fui aprovada graças ao método Wyllo. Funciona, transforma e muda histórias. A minha é prova disso.',
     name: 'Camilla Pascally',

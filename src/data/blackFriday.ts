@@ -6,9 +6,38 @@
  * valores reais da campanha antes de publicar.
  */
 
+export type AgendaItem = string | { highlight: true; text: string }
+export type PromoPhase = 'cupom' | 'lote'
+export type PlanTab = 'sem' | 'com'
+export type FeatureIconName = 'diagnostic' | 'people' | 'chat' | 'shield' | 'chart' | 'screen'
+
+export interface Plan {
+  name: string
+  off: string
+  access: string
+  list: string
+  installment: string
+  perDay: string
+  cash: string
+  pix: string
+  /** `null` usa o link padrão (CTA_URL). */
+  checkoutUrl: string | null
+  featured?: boolean
+}
+
 /* ═════════════ Página 1 — /black-friday (captação de leads) ═════════════ */
 
-export const EVENT = {
+export const EVENT: {
+  opening: string
+  day: string
+  month: string
+  weekday: string
+  channel: string
+  longDate: string
+  whenLabel: string
+  leadEndpoint: string | null
+  thanksUrl: string | null
+} = {
   /** Data/hora da abertura (alimenta a contagem regressiva). */
   opening: '2026-11-27T10:00:00-03:00',
   day: '27',
@@ -60,7 +89,7 @@ export const bf = {
         highlight: true,
         text: 'Uma <strong>condição de entrada na mentoria que nunca foi oferecida antes</strong>, e que só vai existir neste dia',
       },
-    ],
+    ] as AgendaItem[],
     cta: 'INSCREVA-SE GRATUITAMENTE',
   },
   approved: {
@@ -81,7 +110,18 @@ export const bf = {
 
 /* ═════════════ Página 2 — /black-friday/promo (oferta) ═════════════ */
 
-export const PROMO = {
+export const PROMO: {
+  phase: PromoPhase
+  coupon: string
+  couponEnds: string
+  lotEnds: string
+  couponEndsLabel: string
+  lotEndsLabel: string
+  discountMax: string
+  pixDiscount: string
+  whatsapp: string
+  whatsappText: string
+} = {
   /**
    * 'cupom' → dia do cupom: mostra cupom, premiação e passos com cupom.
    * 'lote'  → lote especial: sem cupom e sem premiação.
@@ -131,7 +171,7 @@ export const promoText = {
       { icon: 'shield', title: 'Plano estratégico personalizado', text: 'Feito sobre o seu concurso e a sua rotina, com avaliações periódicas.' },
       { icon: 'chart', title: 'Método testado de alto nível', text: 'Material de estudos do Estratégia Concursos organizado de forma lógica e sustentável.' },
       { icon: 'screen', title: 'Plataforma “Tutory” incluída', text: 'Acompanhamento focado em execução, não em teoria.' },
-    ],
+    ] as { icon: FeatureIconName; title: string; text: string }[],
     note: 'Nesta Black Friday nenhum plano tem meses de bônus. O acesso é exatamente o do plano contratado.',
   },
   steps: {
@@ -153,7 +193,7 @@ export const promoText = {
     tabs: [
       { id: 'sem', label: 'Sem material', hint: 'Para quem já tem material de estudo', sub: 'Para quem já tem material de estudo.' },
       { id: 'com', label: 'Com material', hint: 'Inclui a Assinatura Premium do Estratégia', sub: 'Inclui a Assinatura Premium do Estratégia Concursos.' },
-    ],
+    ] as { id: PlanTab; label: string; hint: string; sub: string }[],
     buy: 'Quero este plano',
     badge: 'MENOR CUSTO POR DIA',
     footnote: {
@@ -172,7 +212,7 @@ export const promoText = {
         { name: '1 ano com material', off: '-00,0%', access: '12 meses de acesso', list: 'R$ 0.000,00', installment: '000,00', perDay: 'R$ 0,00 por dia no PIX', cash: 'R$ 0.000,00', pix: 'R$ 0.000,00', checkoutUrl: null },
         { name: '2 anos com material', off: '-00,0%', access: '24 meses de acesso', list: 'R$ 0.000,00', installment: '000,00', perDay: 'R$ 0,00 por dia no PIX', cash: 'R$ 0.000,00', pix: 'R$ 0.000,00', checkoutUrl: null, featured: true },
       ],
-    },
+    } as Record<PlanTab, Plan[]>,
   },
   how: {
     title: 'Saiba como funciona a mentoria',
