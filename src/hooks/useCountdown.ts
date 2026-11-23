@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
-const pad = (n) => String(n).padStart(2, '0')
+const pad = (n: number) => String(n).padStart(2, '0')
 
 /**
  * Contagem regressiva até `target` (string ISO ou Date).
  * Retorna { d, h, m, s } já com 2 dígitos, `totalHours` (para formato "47 h") e `done`.
  */
-export function useCountdown(target) {
+export function useCountdown(target: string | Date) {
   const end = new Date(target).getTime()
   const [now, setNow] = useState(() => Date.now())
 

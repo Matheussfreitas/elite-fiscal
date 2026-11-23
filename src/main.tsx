@@ -7,7 +7,7 @@ import './styles/sections.css'
 import './styles/blackfriday.css'
 import './styles/promo.css'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <App />

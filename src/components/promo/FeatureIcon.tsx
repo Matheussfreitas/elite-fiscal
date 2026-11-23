@@ -1,4 +1,7 @@
-const PATHS = {
+import type { ReactNode } from 'react'
+import type { FeatureIconName } from '../../data/blackFriday'
+
+const PATHS: Record<FeatureIconName, ReactNode> = {
   diagnostic: (
     <>
       <rect x="5" y="3" width="14" height="18" rx="2" />
@@ -30,7 +33,7 @@ const PATHS = {
 }
 
 /** Ícone de linha (24×24) usado na grade "O que você tem na mentoria". */
-export default function FeatureIcon({ name }) {
+export default function FeatureIcon({ name }: { name: FeatureIconName }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {PATHS[name]}

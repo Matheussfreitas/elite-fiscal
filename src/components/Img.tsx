@@ -1,9 +1,18 @@
+import type { ImageAsset } from '../data/images'
+
+interface ImgProps {
+  image: ImageAsset
+  className?: string
+  light?: boolean
+  round?: boolean
+}
+
 /**
  * Imagem com placeholder automático.
- * Recebe um item de `src/data/images.js`; sem `src`, mostra o placeholder
+ * Recebe um item de `src/data/images.ts`; sem `src`, mostra o placeholder
  * já com a proporção e as dimensões recomendadas.
  */
-export default function Img({ image, className = '', light = false, round = false }) {
+export default function Img({ image, className = '', light = false, round = false }: ImgProps) {
   const { src, alt = '', width, height, label } = image
   const shape = round ? { borderRadius: '50%' } : undefined
 

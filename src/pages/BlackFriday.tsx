@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import Footer from '../components/Footer'
 import Img from '../components/Img'
 import Reveal from '../components/Reveal'
@@ -24,12 +24,14 @@ function CountdownBar() {
     <div className="bf-bar" role="timer">
       {bf.bar.before}
       <span className="bf-bar__cd">
-        {[
-          [d, 'D'],
-          [h, 'H'],
-          [m, 'M'],
-          [s, 'S'],
-        ].map(([value, unit]) => (
+        {(
+          [
+            [d, 'D'],
+            [h, 'H'],
+            [m, 'M'],
+            [s, 'S'],
+          ] as const
+        ).map(([value, unit]) => (
           <span key={unit}>
             {value}
             <small>{unit}</small>
@@ -59,10 +61,10 @@ function Tapes() {
 }
 
 export default function BlackFriday() {
-  const emailRef = useRef(null)
+  const emailRef = useRef<HTMLInputElement>(null)
 
   /** Botões "inscreva-se" levam ao formulário do topo. */
-  function goToForm(e) {
+  function goToForm(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     document.getElementById('bf-topo')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setTimeout(() => emailRef.current?.focus({ preventScroll: true }), 600)

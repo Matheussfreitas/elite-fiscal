@@ -8,6 +8,14 @@
  *   1. Coloque o arquivo em  /public/images/  (ex.: public/images/mentor.webp)
  *   2. Informe o caminho aqui:  src: '/images/mentor.webp'
  */
+export interface ImageAsset {
+  src: string | null
+  alt?: string
+  width: number
+  height: number
+  label: string
+}
+
 export const images = {
   // Logo branca no topo da página
   logo: { src: '/images/logo.png', alt: 'Elite Fiscal', width: 263, height: 127, label: 'LOGO' },
@@ -31,17 +39,24 @@ export const images = {
 
   // Vídeo "Saiba como funciona a mentoria" em /black-friday/promo (miniatura 16:9)
   promoVideo: { src: null, alt: 'Como funciona a mentoria', width: 1280, height: 720, label: 'MINIATURA DO VÍDEO' },
-}
+} satisfies Record<string, ImageAsset>
+
+export type ImageKey = keyof typeof images
 
 /** Miniaturas dos vídeos de depoimento (/black-friday/promo). Edite `src`, `name` e `role`. */
-export const proofVideos = [
+export interface ProofVideo extends ImageAsset {
+  name: string
+  role: string
+}
+
+export const proofVideos: ProofVideo[] = [
   { name: 'Camilla Pascally', role: 'Aprovada no TJ/DF' },
   { name: 'Nayara Meneses', role: 'Aprovada na UERN' },
   { name: 'Carlos Augusto', role: 'Aprovado na PC/RN' },
 ].map((p) => ({ ...p, src: null, alt: `Depoimento de ${p.name}`, width: 1280, height: 720, label: 'MINIATURA DO VÍDEO' }))
 
 /** Prints de depoimentos (/black-friday/promo). Adicione/remova itens livremente. */
-export const proofPrints = Array.from({ length: 6 }, (_, i) => ({
+export const proofPrints: ImageAsset[] = Array.from({ length: 6 }, (_, i) => ({
   src: null,
   alt: `Print de depoimento ${i + 1}`,
   width: 600,

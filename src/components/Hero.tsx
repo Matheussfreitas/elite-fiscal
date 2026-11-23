@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { hero } from '../data/content'
 import { images } from '../data/images'
 import CtaButton from './CtaButton'
@@ -5,7 +6,7 @@ import Img from './Img'
 
 export default function Hero() {
   const { heroBgDesktop, heroBgMobile } = images
-  const style = {}
+  const style: CSSProperties & Record<`--${string}`, string> = {}
   if (heroBgDesktop.src) style['--hero-bg-desktop'] = `url("${heroBgDesktop.src}")`
   if (heroBgMobile.src) style['--hero-bg-mobile'] = `url("${heroBgMobile.src}")`
 
